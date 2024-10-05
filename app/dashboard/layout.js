@@ -1,12 +1,14 @@
-export default function DashboardLayout({
-    children, // will be a page or nested layout
-  }) {
-    return (
-      <section>
-        {/* Include shared UI here e.g. a header or sidebar */}
-        <nav></nav>
-   
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+
+export default function DashboardLayout({children}){
+  return (
+    <div className='flex'>
+      <Header/>
+      <main className="transition-all duration-300 mt-60 w-full bg-slate-100 overflow-x-hidden">
+       <Sidebar />
         {children}
-      </section>
-    )
-  }
+      </main>
+    </div>
+  )
+}
