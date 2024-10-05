@@ -9,7 +9,6 @@ export default function DashboardLayout({ children }) {
         <Header />
       </header>
 
-      {/* Main content layout, adjusted to ensure no vertical movement */}
       <div className="flex flex-grow">
         {/* Sidebar on the left */}
         <aside className="w-1/4 bg-gray-100 fixed top-20 left-0 h-[calc(100vh-5rem)] z-20">
@@ -17,7 +16,7 @@ export default function DashboardLayout({ children }) {
         </aside>
 
         {/* Main content area next to sidebar */}
-        <main className="ml-1/4 flex-grow p-8 bg-slate-100 overflow-y-auto" style={{ paddingTop: '5rem' }}>
+        <main className="ml-[25%] flex-grow p-8 bg-slate-100 overflow-y-auto" style={{ marginTop: '5rem' }}>
           {children}
         </main>
       </div>
