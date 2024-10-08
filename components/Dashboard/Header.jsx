@@ -5,7 +5,7 @@ import SearchInput from './SearchInput'
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between p-8 h-20">
+    <div className="bg-purple-200 flex items-center justify-between p-8 h-20 ">
       <div className="flex gap-4">
         <Image src="/user.png" alt="user_image"  width={200} height={200} className='rounded-full w-12 h-12 border-4 border-purple-800'/>
         <div className="flex flex-col hidden md:block">
