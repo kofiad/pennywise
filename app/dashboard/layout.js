@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }) {
         </aside>
 
         {/* Main content area next to sidebar */}
-        <main className="ml-[30%] flex-grow bg-purple-100 overflow-y-auto m-8 rounded-lg" style={{ marginTop: '5rem' }}>
+        <main className="ml-[30%] flex-grow overflow-y-auto m-8 rounded-lg" style={{ marginTop: '5rem' }}>
           {children}
         </main>
       </div>
