@@ -21,7 +21,7 @@ export async function GET(request, {params: {id}}) {
       const { amount, source, category, description } = await request.json();
       const income = await db.income.update({
         where: {id},
-        data: {  amount, source, category, description  },
+        data: {  amount: parseFloat(amount), source, category, description  },
       });
       return NextResponse.json(income, { status: 200 });
     } catch (error) {
