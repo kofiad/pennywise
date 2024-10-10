@@ -2,7 +2,7 @@ import DataTable from '@/components/Dashboard/DataTable'
 import FormHeader from '@/components/FormInputs/FormHeader'
 import { getData } from '@/lib/getData'
 
-export default async function savings() {
+export default async function Savings() {
   const savingsData = getData("api/savings")
   const [savings] = await Promise.all([savingsData])
 
