@@ -51,7 +51,7 @@ export default function DataTable({data=[], columns=[], resource}) {
 
                                     <td className="px-6 py-4 text-right flex items-center space-x-4">
                                     <Link
-                                        href={`/dashboard/inventory/${resource}/update/${item.id}`}
+                                        href={`/dashboard/${resource}/update/${item.id}`}
                                         className="font-medium text-blue-600 dark:text-blue-500 flex items-center space-x-1 hover:text-blue-400"
                                     >
                                         <Pencil className="w-4 h-4" />
