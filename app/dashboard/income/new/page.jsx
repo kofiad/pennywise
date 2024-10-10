@@ -1,7 +1,8 @@
 "use client"
+import FormHeader from '@/components/FormInputs/FormHeader'
 import SubmitButton from '@/components/FormInputs/SubmitButton'
+import TextAreaInput from '@/components/FormInputs/TextAreaInput'
 import TextInput from '@/components/FormInputs/TextInput'
-import FormHeader from '@/components/dashboard/FormHeader'
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -34,11 +35,10 @@ export default function NewIncome({initialData={}, isUpdate=false}) {
   return (
     <div>
         {/* Header */}
-        <FormHeader title={isUpdate?"Update Income":"New Income" }href="/dashboard/income"/>
+        <FormHeader title={isUpdate?"Update Income":"New Income"} href="/dashboard/income"/>
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className='w-full max-w-4xl mx-auto p-4 my-3 bg-purple-100 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
           <div className='w-full grid gap-4 grid-cols-1 sm:gap-6'>
-            <TextInput label='Date' name="date" register={register} errors={errors} />
             <TextInput label='Amount' name="amount" register={register} errors={errors} />
             <TextInput label='Source' name="source" register={register} errors={errors} />
             <TextInput label='Category' name="category" register={register} errors={errors} />
