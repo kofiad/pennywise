@@ -12,3 +12,43 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Income {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source   String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Expense {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source   String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Budget {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source   String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Savings {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source   String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
