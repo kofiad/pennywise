@@ -1,37 +1,49 @@
-"use client";
-import FormHeader from "@/components/FormInputs/FormHeader";
-import SubmitButton from "@/components/FormInputs/SubmitButton";
-import TextAreaInput from "@/components/FormInputs/TextAreaInput";
-import TextInput from "@/components/FormInputs/TextInput";
-import { useRouter } from "next/navigation";
+"use client"
+import SubmitButton from '@/components/FormInputs/SubmitButton'
+import TextInput from '@/components/FormInputs/TextInput'
+import FormHeader from '@/components/dashboard/FormHeader'
+import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
-import { useState } from "react";
 
-
-export default function NewIncome() {
+export default function NewIncome({initialData={}, isUpdate=false}) {
   const router = useRouter();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({defaultValues: initialData});
+
   const [loading, setloading] = useState(false);
 
+  function redirect(){
+    router.push("/dashboard/income");
+  }
+
+  async function onSubmit(data){
+    console.log(data);
+    if (isUpdate) {
+      makePutRequest(setloading, `api/income/${initialData.id}`,redirect, data);
+    } else {
+      makePostRequest(setloading, "api/income", data, reset);
+    }
+  };
 
   return (
     <div>
         {/* Header */}
-        <FormHeader title="New Income" href="/dashboard/income"/>
+        <FormHeader title={isUpdate?"Update Income":"New Income" }href="/dashboard/income"/>
         {/* Form */}
-        <form  className='w-full max-w-4xl mx-auto p-4 my-3 bg-purple-100 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+        <form onSubmit={handleSubmit(onSubmit)} className='w-full max-w-4xl mx-auto p-4 my-3 bg-purple-100 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
           <div className='w-full grid gap-4 grid-cols-1 sm:gap-6'>
             <TextInput label='Date' name="date" register={register} errors={errors} />
             <TextInput label='Amount' name="amount" register={register} errors={errors} />
             <TextInput label='Source' name="source" register={register} errors={errors} />
             <TextInput label='Category' name="category" register={register} errors={errors} />
             <TextAreaInput label='Description' name="description" register={register} errors={errors} />
-            <div className="flex items-center justify-center w-full"><SubmitButton isLoading={loading} title="Income"/></div>
+            <div className="flex items-center justify-center w-full"><SubmitButton isLoading={loading} title= {isUpdate?"Update":"Income"}/></div>
           </div>
         </form>
     </div>
