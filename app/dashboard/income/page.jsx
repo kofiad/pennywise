@@ -26,7 +26,7 @@ export default async function Income() {
   return (
     <div>
         {/* Header */}
-        <FormHeader title="Income" newlink="/dashboard/home"/>
+        <FormHeader title="Income" href="/dashboard/home"/>
         {/* Table */}
         <div className="rounded-lg p-8">
            <DataTable data={data} columns={columns} resource="income"/>
