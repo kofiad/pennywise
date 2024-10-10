@@ -34,13 +34,7 @@ export default function DataTable({data=[], columns=[], resource}) {
                                 >
                                     {columns.map((columnName, i) => (
                                     <td key={i} className="px-6 py-4">
-                                        {columnName === "image" ? (
-                                        <img
-                                            src={item[columnName]}
-                                            alt={`Image for ${resource}`}
-                                            className="w-10 h-10 object-cover rounded-lg"
-                                        />
-                                        ) : columnName === "created" ||
+                                        { columnName === "created" ||
                                         columnName === "updated" ? (
                                         new Date(item[columnName]).toLocaleString()
                                         ) : (
