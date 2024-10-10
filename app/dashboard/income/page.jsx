@@ -1,5 +1,5 @@
-import DataTable from '@/components/dashboard/DataTable'
-import FixedHeader from '@/components/dashboard/FixedHeader'
+import DataTable from '@/components/Dashboard/DataTable'
+import FormHeader from '@/components/FormInputs/FormHeader'
 import { getData } from '@/lib/getData'
 
 export default async function Income() {
@@ -7,9 +7,9 @@ export default async function Income() {
   const [income] = await Promise.all([incomeData])
 
   // Ensure income is an array
-  const validincome = Array.isArray(income) ? income : []
+  const validIncome = Array.isArray(income) ? income : []
 
-  const data = validincome.map((item) => {
+  const data = validIncome.map((item) => {
     return {
       id: item.id,
       amount: item.amount,
@@ -26,7 +26,7 @@ export default async function Income() {
   return (
     <div>
         {/* Header */}
-        <FixedHeader title="income" newlink="/dashboard/inventory/income/new"/>
+        <FormHeader title="Income" newlink="/dashboard/home"/>
         {/* Table */}
         <div className="rounded-lg p-8">
            <DataTable data={data} columns={columns} resource="income"/>
