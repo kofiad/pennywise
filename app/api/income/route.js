@@ -6,7 +6,7 @@ export async function POST(request) {
   try {
     const { amount, source, category, description } = await request.json();
     const income = await db.income.create({
-      data: {  amount, source, category, description  },
+      data: {  amount: parseFloat(amount), source, category, description  },
     });
     return NextResponse.json(income, { status: 201 });
   } catch (error) {
