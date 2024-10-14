@@ -1,8 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PennyWise Documentation
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Getting Started](#getting-started)
+3. [Project Structure](#project-structure)
+4. [API Routes](#api-routes)
+5. [Styling](#styling)
+6. [Utilities](#utilities)
+7. [Database Schema](#database-schema)
+8. [Configuration](#configuration)
+9. [Contributing](#contributing)
+10. [License] (#license)
+11. [Learn More](#learn-more)
+12. [Deploy on Vercel](#deploy-on-vercel)
+
+## Introduction
+PennyWise is a financial management application built with Next.js. It helps users manage their income, expenses, budgets, and savings. This documentation serves as a guide for future contributors to understand the structure and setup of the project.
 
 ## Getting Started
-
-First, run the development server:
+To get started with the development server, run the following commands:
 
 ```bash
 npm run dev
@@ -16,21 +32,231 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
+The project follows a standard Next.js structure with some additional directories for organization:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+.
+├── app
+│   ├── api
+│   │   ├── income
+│   │   │   └── route.js
+│   │   ├── savings
+│   │   │   └── route.js
+│   ├── layout.js
+│   └── page.js
+├── components
+│   ├── Dashboard
+│   │   └── Sidebar.jsx
+├── lib
+│   └── utils.js
+├── prisma
+│   └── schema.prisma
+├── public
+├── styles
+│   └── main.scss
+├── [tailwind.config.js]
+├── [package.json]
+└── [README.md]
+```
 
-## Learn More
+### Key Directories and Files
+- **app/**: Contains the main application files, including API routes and layout components.
+- **components/**: Contains reusable React components.
+- **lib/**: Contains utility functions.
+- **prisma/**: Contains the Prisma schema for database models.
+- **styles/**: Contains global stylesheets.
+- **tailwind.config.js**: Configuration file for Tailwind CSS.
+- **package.json**: Contains project dependencies and scripts.
 
-To learn more about Next.js, take a look at the following resources:
+## API Routes
+The API routes are located in the api directory. Each route handles CRUD operations for different resources.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Income Route
+File:`app/api/income/route.js`
+Handles the creation of new income entries.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```js
+export async function POST(request) {
+  try {
+    const { amount, source, category, description } = await request.json();
+    const income = await db.income.create({
+      data: { amount: parseFloat(amount), source, category, description },
+    });
+    return NextResponse.json(income, { status: 201 });
+  } catch (error) {
+    console.error("Error creating income:", error);
+    return NextResponse.json(
+      {
+        error,
+        message: "Failed to create an income",
+      },
+      { status: 500 }
+    );
+  }
+}
+```
 
-## Deploy on Vercel
+### Savings Route
+File: `app/api/savings/route.js`
+Handles the creation of new savings entries.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```js
+export async function POST(request) {
+  try {
+    const { amount, source, category, description } = await request.json();
+    const savings = await db.savings.create({
+      data: { amount: parseFloat(amount), source, category, description },
+    });
+    return NextResponse.json(savings, { status: 201 });
+  } catch (error) {
+    console.error("Error creating savings:", error);
+    return NextResponse.json(
+      {
+        error,
+        message: "Failed to create a savings",
+      },
+      { status: 500 }
+    );
+  }
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Styling
+The project uses Tailwind CSS for styling. The configuration is located in `tailwind.config.js`.
+
+
+### Tailwind Configuration
+File: `tailwind.config.js`
+
+```js
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        // Additional color configurations...
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/forms'),
+  ],
+};
+```
+
+## Utilities
+Utility functions are located in the utils.js file.
+
+### Utility Functions
+File: `lib/utils.js`
+
+```js
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+```
+
+## Database Schema
+The database schema is defined using Prisma and is located in `prisma/schema.prisma`
+.
+
+### Prisma Schema
+File: `prisma/schema.prisma`
+
+
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Income {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source    String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Expense {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source    String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Budget {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source    String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Savings {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  source    String
+  category  String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+```
+
+## Configuration
+### Environment Variables
+Ensure you have a `.env` file with the following variables:
+
+```
+DATABASE_URL=<your-database-url-generated-from-mongodb>
+```
+
+### Tailwind CSS
+Tailwind CSS is configured in `tailwind.config.js`. Ensure you have the necessary plugins installed.
+
+## Contributing
+We welcome contributions from the community. To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/your-feature`).
+6. Open a pull request.
+
+### Coding Standards
+- Follow the existing code style.
+- Write clear and concise commit messages.
+- Ensure your code passes linting and tests.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
