@@ -5,7 +5,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header on top */}
-      <header className="bg:purple-200 fixed w-full top-0 h-20">
+      <header className="fixed w-full top-0 h-20">
         <Header />
       </header>
 

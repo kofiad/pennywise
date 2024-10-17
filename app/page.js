@@ -1,12 +1,19 @@
-import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Hero from "../components/Hero";
+import Steps from "@/components/Steps";
+import Features from "@/components/Features";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen flex-col">
-      <h2 className="text-3xl m-b-4">
-        PennyWise
-      </h2>
-      <Link href="/dashboard/home">View dashboard</Link>
+    <div className="bg-purple-900">
+      <Navbar/>
+      <Hero/>
+      <Steps/>
+      <Features/>
+      <FAQ/>
+      <Footer/>
     </div>
   );
 }
