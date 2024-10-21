@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import LoginForm from "@/components/auth/LoginForm";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ export default function Login() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/dashboard/home/overview");
+      router.push("/dashboard/home");
     }
   }, [status, router]);
 
@@ -20,19 +20,11 @@ export default function Login() {
   }
 
   return (
-    <section className="bg-sky-300 min-h-screen py-10 dark:bg-sky-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <section className="min-h-screen flex justify-center items-center bg-purple-100 dark:bg-purple-900">
+      <div className="flex flex-col items-center justify-center px-6 w-full max-w-md mx-auto">
         {/* Logo */}
-        <a
-          href="#"
-          className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-        >
-          <img
-            className="w-25 h-10 mr-2 text-sky-600"
-            src="/logo.svg"
-            alt="logo"
-          />
-        </a>
+        <span className="font-bold text-4xl text-purple-900 p-4">PennyWise</span>
+        {/* Login Form */}
         <LoginForm />
       </div>
     </section>
