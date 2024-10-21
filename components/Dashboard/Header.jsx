@@ -41,9 +41,9 @@ export default function Header() {
       <div className="flex gap-4">
       <button>
             {session.user?.image ? (
-              <Image src={session.user?.image} alt='User Image' width={96} height={96} className='rounded-full w-8 h-8 border border-slate-800'/>
+              <Image src={session.user?.image} alt='User Image' width={96} height={96} className='rounded-full w-16 h-16 border-4 border-purple-800'/>
             ) : (
-              <div className='flex items-center justify-center rounded-full w-8 h-8 border border-slate-800 bg-white'>{initials}</div>
+              <div className='flex items-center justify-center rounded-full w-16 h-16 border-4 border-purple-800 bg-white'>{initials}</div>
             )}
           </button>
         <div className="flex flex-col hidden md:block">
