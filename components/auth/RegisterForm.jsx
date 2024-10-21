@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
 
@@ -19,7 +20,6 @@ export default function RegisterForm() {
   const [emailErr, setEmailErr] = useState("");
   async function onSubmit(data) {
     try {
-      console.log(data);
       setLoading(true);
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
       const response = await fetch(`${baseUrl}/api/user`, {
@@ -34,10 +34,7 @@ export default function RegisterForm() {
 
       if (response.ok) {
         setLoading(false);
-        Swal.fire({
-          icon: "success",
-          text: "User Created Successfully",
-        });
+        toast.success("User Created Successfully");
         reset();
         router.push("/login");
       } else {
