@@ -4,8 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { authOptions } from '@/lib/authOptions'
 import Image from 'next/image'
 
-export default function Hero() {
-  const session = getServerSession(authOptions)
+export default function Hero({session}) {
   return (
     <div className="bg-gradient-to-b from-purple-900 to-purple-300 flex flex-col p-16 mt-16 text-white items-center">
       {/* Content */}
@@ -26,4 +25,13 @@ export default function Hero() {
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const session = await getServerSession(authOptions)
+  return{
+    props:{
+      session,
+    }
+  }
 }
