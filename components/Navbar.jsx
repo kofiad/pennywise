@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Mobile menu */}
           <div className={`${show ? "block" : "hidden"} lg:hidden fixed w-64 bg-slate-800 bg-opacity-95 h-screen right-0 z-50 top-0 p-4 text-slate-50 transition-transform transform ${show ? "translate-x-0" : "translate-x-full"} duration-300`}>
               <div className="flex justify-between items-center mb-10">
-                  <h2 className="font-bold text-xl">ProCura</h2>
+                  <h2 className="font-bold text-xl">PennyWise</h2>
                   <button onClick={() => setShow(false)}>
                       <X className="text-2xl" />
                   </button>
