@@ -2,7 +2,7 @@
 import { ChartColumnIncreasing } from 'lucide-react'
 import Image from 'next/image'
 import SearchInput from './SearchInput'
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import generateInitials from '@/lib/generateInitials';
