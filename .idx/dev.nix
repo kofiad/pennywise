@@ -17,11 +17,11 @@
     pkgs.bun
   ];
   # Sets environment variables in the workspace.
-  # Define environment variables (currently empty, can be customized)
+  # Define environment variables (currently empty, can be customized).
   
   idx = {
-    # Extensions to be added to the environment
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
+    # Extensions to be added to the environment.
+    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id".
     extensions = [
       # "vscodevim.vim"
     ];
