@@ -19,10 +19,12 @@ export default function NewBudget({initialData={}, isUpdate=false}) {
 
   const [loading, setloading] = useState(false);
 
+  // Function to redirect the user after submission
   function redirect(){
     router.push("/dashboard/budget");
   }
 
+    // Function to handle form submission
   async function onSubmit(data){
     // console.log(data);
     if (isUpdate) {
