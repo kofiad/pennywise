@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { authOptions } from '@/lib/authOptions'
 import Image from 'next/image'
 
-export default function Hero({ session }) {
+export default async function Hero({ session }) {
   console.log('Session in component:', session); // Log session to debug
 
   return (
