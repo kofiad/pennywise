@@ -6,7 +6,7 @@ export default function Steps() {
     <div className="p-8 md:p-16 bg-purple-100 mx-auto">
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-center">
-          Simplify Your Medical Device Maintenance
+          Simplify Your Financial Tracking Needs
         </h2>
 
         {/* Steps for large and medium screens */}
