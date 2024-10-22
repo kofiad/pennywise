@@ -1,4 +1,5 @@
 import ActivityCard from '@/components/Dashboard/ActivityCard'
+import OverviewChart from '@/components/Dashboard/OverviewChart'
 import { getData } from '@/lib/getData'
 import React from 'react'
 
@@ -52,7 +53,7 @@ export default async function Home() {
 
   return (
     <div className='bg-purple-100 mt-4 min-h-screen rounded-lg'>
-      {/*Sales Activity*/}
+      {/*Finance Activity*/}
       <div className='flex flex-col col-span-full lg:col-span-8 p-8 sm:py-12 lg:py-8 space-y-8'>
         <div>
           <h2 className='mb-4 text-xl text-slate-500'>Financial Overview</h2>
@@ -66,6 +67,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
+      <OverviewChart />
     </div>
   )
 }
