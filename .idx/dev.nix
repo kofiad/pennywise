@@ -49,15 +49,16 @@
       # You can add commands here if needed.
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
-    
+
     # Enable and configure previews (e.g., web applications)
     # Enable previews and customize configuration
     previews = {
       enable = true;
       previews = {
         web = {
+          # Command to start the web server for previews
           command = ["npm" "run" "dev" "--" "--port" "$PORT" "--hostname" "0.0.0.0"];
-          manager = "web";
+          manager = "web"; # Define which manager to use for the preview
         };
       };
     };
