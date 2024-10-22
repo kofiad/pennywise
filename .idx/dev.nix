@@ -7,7 +7,7 @@
   # Which nixpkgs channel to use.
   # Specify the nixpkgs channel version (stable or unstable)
   channel = "stable-24.05"; # or "unstable"
-  
+
   # List of packages to be included in the environment
   # Use https://search.nixos.org/packages to find packages
   packages = [
@@ -17,14 +17,19 @@
     pkgs.bun
   ];
   # Sets environment variables in the workspace
-  env = {};
+  # Define environment variables (currently empty, can be customized)
+  
   idx = {
+    # Extensions to be added to the environment
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
     ];
+
+    # Workspace-specific settings
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
+      # Commands to run when a workspace is created for the first time
       onCreate = {
         npm-install = "npm ci --no-audit --prefer-offline --no-progress --timing";
         # Open editors for the following files by default, if they exist:
