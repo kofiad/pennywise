@@ -19,7 +19,7 @@ export default function NewBudget({initialData={}, isUpdate=false}) {
 
   const [loading, setloading] = useState(false);
 
-  // Function to redirect the user after submission
+  // Function to redirect the user after submission.
   function redirect(){
     router.push("/dashboard/budget");
   }
