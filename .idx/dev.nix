@@ -34,7 +34,7 @@
         # Install dependencies without audit, optimizing for offline use.
         npm-install = "npm ci --no-audit --prefer-offline --no-progress --timing";
 
-        # List of files to open by default, if they exist in the workspace
+        # List of files to open by default, if they exist in the workspace.
         # Open editors for the following files by default, if they exist:
         default.openFiles = [
           # Cover all the variations of language, src-dir, router (app/pages)
