@@ -11,8 +11,6 @@
 8. [Configuration](#configuration)
 9. [Contributing](#contributing)
 10. [License] (#license)
-11. [Learn More](#learn-more)
-12. [Deploy on Vercel](#deploy-on-vercel)
 
 ## Introduction
 PennyWise is a financial management application built with Next.js. It helps users manage their income, expenses, budgets, and savings. This documentation serves as a guide for future contributors to understand the structure and setup of the project.
