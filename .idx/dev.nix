@@ -31,13 +31,13 @@
       # Runs when a workspace is first created with this `dev.nix` file.
       # Commands to run when a workspace is created for the first time.
       onCreate = {
-        # Install dependencies without audit, optimizing for offline use
+        # Install dependencies without audit, optimizing for offline use.
         npm-install = "npm ci --no-audit --prefer-offline --no-progress --timing";
 
-        # List of files to open by default, if they exist in the workspace
+        # List of files to open by default, if they exist in the workspace.
         # Open editors for the following files by default, if they exist:
         default.openFiles = [
-          # Cover all the variations of language, src-dir, router (app/pages)
+          # Cover all the variations of language, src-dir, router (app/pages).
           "pages/index.tsx" "pages/index.jsx"
           "src/pages/index.tsx" "src/pages/index.jsx"
           "app/page.tsx" "app/page.jsx"
