@@ -58,7 +58,7 @@
         web = {
           # Command to start the web server for previews
           command = ["npm" "run" "dev" "--" "--port" "$PORT" "--hostname" "0.0.0.0"];
-          manager = "web"; # Define which manager to use for the preview
+          manager = "web"; # Define which manager to use for the preview.
         };
       };
     };
