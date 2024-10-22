@@ -9,7 +9,7 @@
   channel = "stable-24.05"; # or "unstable"
 
   # List of packages to be included in the environment.
-  # Use https://search.nixos.org/packages to find packages.
+  # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.nodejs_20
     pkgs.yarn
