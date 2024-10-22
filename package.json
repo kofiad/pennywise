@@ -32,6 +32,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
     "react-hot-toast": "^2.4.1",
+    "recharts": "^2.13.0",
     "sass": "^1.79.4",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.14.2",
