@@ -4,7 +4,7 @@
 # To learn more about how to use Nix to configure your environment
 # see: https://developers.google.com/idx/guides/customize-idx-env
 {pkgs}: {
-  # Which nixpkgs channel to use
+  # Which nixpkgs channel to use.
   # Specify the nixpkgs channel version (stable or unstable)
   channel = "stable-24.05"; # or "unstable"
 
