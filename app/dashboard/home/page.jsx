@@ -27,32 +27,36 @@ export default async function Home() {
     {
       title: "Total Income",
       number: totalIncome,
-      href: "/"
+      href: "/",
+      colour: "text-purple-500"
     },
     {
       title: "Total Expenses",
       number: totalExpenses,
-      href: "/"
+      href: "/",
+      colour: "text-purple-500"
     },
     {
       title: "Available Income",
       number: availableIncome,
-      href: "/"
+      href: "/",
+      colour: "text-purple-500"
     },
     {
       title: "Budget",
       number: totalBudget,
-      href: "/"
+      href: "/",
+      colour: "text-purple-500"
     }
   ]
 
   return (
     <div className='bg-purple-100 mt-4 min-h-screen rounded-lg'>
       {/*Sales Activity*/}
-      <div className='flex flex-col col-span-full lg:col-span-8 border-r border-slate-300 p-8 sm:py-12 lg:py-8 space-y-8'>
+      <div className='flex flex-col col-span-full lg:col-span-8 p-8 sm:py-12 lg:py-8 space-y-8'>
         <div>
-          <h2 className='mb-4 text-xl'>Financial Overview</h2>
-          <div className='pr-8 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+          <h2 className='mb-4 text-xl text-slate-500'>Financial Overview</h2>
+          <div className='pr-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {/*Card*/}
             {
               financeActivity.map((item, index) => (
