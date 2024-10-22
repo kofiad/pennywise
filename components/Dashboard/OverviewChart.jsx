@@ -52,11 +52,17 @@ export default function OverviewChart() {
     expenses: chartData.reduce((acc, curr) => acc + curr.expenses, 0),
   }), [chartData]);
 
+  const formatDate = (dateString) => {
+    const [year, month] = dateString.split("-");
+    const date = new Date(year, month - 1);
+    return date.toLocaleDateString("en-US", { year: 'numeric', month: 'short' });
+  };
+
   return (
     <Card>
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
-          <CardTitle>Financial Overview Chart</CardTitle>
+          <CardTitle className="text-slate-500">Financial Overview Chart</CardTitle>
           <CardDescription>
             Showing breakdown of monthly income and expenses.
           </CardDescription>
@@ -71,11 +77,12 @@ export default function OverviewChart() {
                 className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
                 onClick={() => setActiveChart(chart)}
               >
-                <span className="text-xs text-muted-foreground">
+                <span className="text-slate-500 text-xs text-muted-foreground">
                   {chart === "all" ? "All" : chartConfig[chart].label}
                 </span>
-                <span className="text-lg font-bold leading-none sm:text-3xl">
-                {chart === "all" ? "" : total[chart].toLocaleString()}                </span>
+                <span className="text-purple-500 text-lg font-bold leading-none sm:text-3xl">
+                  {chart === "all" ? "" : total[chart].toLocaleString()}
+                </span>
               </button>
             )
           })}
@@ -100,14 +107,14 @@ export default function OverviewChart() {
               axisLine={false}
               tickMargin={8}
               minTickGap={32}
-              tickFormatter={(value) => value} // Directly use the date string
+              tickFormatter={formatDate} // Use the formatDate function
             />
             <ChartTooltip
               content={
                 <ChartTooltipContent
                   className="w-[150px]"
                   nameKey={activeChart}
-                  labelFormatter={(value) => value} // Directly use the date string
+                  labelFormatter={formatDate} // Use the formatDate function
                 />
               }
             />
