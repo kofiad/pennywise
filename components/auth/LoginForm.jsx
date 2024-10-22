@@ -40,13 +40,13 @@ export default function LoginForm() {
             }
           } catch (error) {
             setIsVerifying(false);
-            console.log(error);
+            // console.log(error);
           }
         }
       }
       verify();
     }
-    console.log(token);
+    // console.log(token);
   }, []);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
