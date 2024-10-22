@@ -9,10 +9,10 @@ import ThemeLink from './ThemeLink';
 
 export default function Navbar() {
     const {data: session, status} = useSession();
-    console.log(session);
+    // console.log(session);
     const [show, setShow] = useState(false);
     if (status === 'loading'){return <Loading />};
-    console.log(status);
+    // console.log(status);
     const initials = generateInitials(session?.user?.name);
 
     return (
