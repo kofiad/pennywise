@@ -24,7 +24,7 @@ export default function NewBudget({initialData={}, isUpdate=false}) {
   }
 
   async function onSubmit(data){
-    console.log(data);
+    // console.log(data);
     if (isUpdate) {
       makePutRequest(setloading, `api/budget/${initialData.id}`,redirect, data);
     } else {

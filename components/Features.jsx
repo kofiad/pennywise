@@ -36,8 +36,7 @@ const featuresOptions = [
   },
 ];
 
-export default function Features() {
-  const session = getServerSession(authOptions);
+export default function Features({session}) {
   return (
     <div className="bg-purple-950 p-4 md:p-8 lg:p-16 text-slate-50">
       <h2 className="text-2xl md:text-4xl font-semibold mb-8 text-center">Features of PennyWise</h2>
@@ -79,4 +78,13 @@ export default function Features() {
 
     </div>
   );
+}
+
+export async function getServerSideProps(context){
+  const session = await getServerSession(authOptions)
+  return{
+    props:{
+      session,
+    }
+  }
 }
