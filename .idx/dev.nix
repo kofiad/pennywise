@@ -44,8 +44,13 @@
           "src/app/page.tsx" "src/app/page.jsx"
         ];
       };
+
+      # Define actions when the workspace is started or restarted (onStart hook)
+      # You can add commands here if needed.
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
+    
+    # Enable and configure previews (e.g., web applications)
     # Enable previews and customize configuration
     previews = {
       enable = true;
