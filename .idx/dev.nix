@@ -45,7 +45,7 @@
         ];
       };
 
-      # Define actions when the workspace is started or restarted (onStart hook).
+      # Define actions when the workspace is started or restarted (onStart hook)
       # You can add commands here if needed.
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
