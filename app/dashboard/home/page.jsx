@@ -56,8 +56,8 @@ export default async function Home() {
       {/*Finance Activity*/}
       <div className='flex flex-col col-span-full lg:col-span-8 p-8 sm:py-12 lg:py-8 space-y-8'>
         <div>
-          <h2 className='mb-4 text-xl text-slate-500'>Financial Overview</h2>
-          <div className='pr-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+          <h2 className='mb-4 sm:text-md lg:text-xl text-slate-500'>Financial Overview</h2>
+          <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {/*Card*/}
             {
               financeActivity.map((item, index) => (
@@ -67,7 +67,9 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <OverviewChart />
+      <div className='px-8'>
+        <OverviewChart />
+      </div>
     </div>
   )
 }
