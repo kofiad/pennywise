@@ -24,7 +24,7 @@ export default function NewExpense({initialData={}, isUpdate=false}) {
   }
 
   async function onSubmit(data){
-    console.log(data);
+    // console.log(data);
     if (isUpdate) {
       makePutRequest(setloading, `api/expense/${initialData.id}`,redirect, data);
     } else {
