@@ -17,7 +17,7 @@
     pkgs.bun
   ];
   # Sets environment variables in the workspace.
-  # Define environment variables (currently empty, can be customized)
+  # Define environment variables (currently empty, can be customized).
   
   idx = {
     # Extensions to be added to the environment
