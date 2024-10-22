@@ -20,8 +20,12 @@ export default function Hero({session}) {
         </div>
       </div>
       {/* Image */}
-      <div className="relative w-full h-96 mt-8">
-        <Image src="/pennywiseMockup.png" layout="fill" objectFit="contain" alt="Pennywise Image" />
+      <div style={{ position: 'relative', width: '100%', height: '500px' }}>
+        <Image
+          src="/pennywiseMockup.png"
+          alt="Pennywise Mockup"
+          fill
+        />
       </div>
     </div>
   )
