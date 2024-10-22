@@ -24,7 +24,7 @@ export default function NewBudget({initialData={}, isUpdate=false}) {
     router.push("/dashboard/budget");
   }
 
-    // Function to handle form submission..//
+    // Function to handle form submission.//
   async function onSubmit(data){
     // console.log(data);
     if (isUpdate) {
