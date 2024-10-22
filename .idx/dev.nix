@@ -28,7 +28,7 @@
 
     # Workspace-specific settings
     workspace = {
-      # Runs when a workspace is first created with this `dev.nix` file
+      # Runs when a workspace is first created with this `dev.nix` file.
       # Commands to run when a workspace is created for the first time
       onCreate = {
         # Install dependencies without audit, optimizing for offline use
