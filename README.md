@@ -10,7 +10,7 @@
 7. [Database Schema](#database-schema)
 8. [Configuration](#configuration)
 9. [Contributing](#contributing)
-10. [License] (#license)
+10. [License](#license)
 
 ## Introduction
 PennyWise is a financial management application built with Next.js. It helps users manage their income, expenses, budgets, and savings. This documentation serves as a guide for future contributors to understand the structure and setup of the project.
