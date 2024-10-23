@@ -1,6 +1,6 @@
 module.exports = {
-    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+    testPathIgnorePatterns: ['app\dashboard\budget\new\page.jsx', 'app\dashboard\expense\new\page.jsx'],
+    setupFilesAfterEnv: ['jest.config.js'],
     moduleNameMapper: {
       // Handle CSS imports (with CSS modules)
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
