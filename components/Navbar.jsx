@@ -70,7 +70,7 @@ export default function Navbar() {
               <nav className="flex flex-col items-start gap-4 mb-10">
                   <Link className="hover:text-purple-300 transition duration-300" href="/">Features</Link>
                   <Link className="hover:text-purple-300 transition duration-300" href="/">FAQs</Link>
-                  <Link href="/dashboard/home/overview">Dashboard</Link>
+                  <Link href="/dashboard/home">Dashboard</Link>
               </nav>
 
               {status === "authenticated" ? (
