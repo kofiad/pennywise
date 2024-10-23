@@ -64,7 +64,7 @@ export default function Features({session}) {
             <ThemeLink
             className="bg-purple-600 hover:bg-purple-700 focus:ring-purple-300 transition-transform transform hover:scale-105 focus:scale-105"
             title="View Dashboard"
-            href="/dashboard/home/overview"
+            href="/dashboard/home"
             Icon={ArrowRight}
           />
         :<ThemeLink
